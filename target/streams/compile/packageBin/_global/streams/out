@@ -1,0 +1,13 @@
+[debug] Packaging C:\WarThunder\target\scala-3.0.0\warthunder_3-0.1.0-SNAPSHOT.jar ...
+[debug] Input file mappings:
+[debug] 	main$package$.class
+[debug] 	  C:\WarThunder\target\scala-3.0.0\classes\main$package$.class
+[debug] 	main$package.class
+[debug] 	  C:\WarThunder\target\scala-3.0.0\classes\main$package.class
+[debug] 	main$package.tasty
+[debug] 	  C:\WarThunder\target\scala-3.0.0\classes\main$package.tasty
+[debug] 	main.class
+[debug] 	  C:\WarThunder\target\scala-3.0.0\classes\main.class
+[debug] 	main.tasty
+[debug] 	  C:\WarThunder\target\scala-3.0.0\classes\main.tasty
+[debug] Done packaging.

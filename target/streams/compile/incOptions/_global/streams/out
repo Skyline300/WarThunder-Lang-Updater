@@ -1,0 +1,23 @@
+[debug] Created transactional ClassFileManager with tempDir = C:\WarThunder\target\scala-3.0.0\classes.bak
+[debug] About to delete class files:
+[debug] 	main$package.class
+[debug] 	main$package$.class
+[debug] 	main.class
+[debug] 	main$package.tasty
+[debug] 	main$package$.tasty
+[debug] 	main.tasty
+[debug] We backup class files:
+[debug] 	main$package.class
+[debug] 	main$package$.class
+[debug] 	main.class
+[debug] 	main$package.tasty
+[debug] 	main$package$.tasty
+[debug] 	main.tasty
+[debug] Registering generated classes:
+[debug] 	main.class
+[debug] 	main$package.class
+[debug] 	main$package$.class
+[debug] 	main.tasty
+[debug] 	main$package.tasty
+[debug] 	main$package$.tasty
+[debug] Removing the temporary directory used for backing up class files: C:\WarThunder\target\scala-3.0.0\classes.bak

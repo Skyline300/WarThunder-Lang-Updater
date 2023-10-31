@@ -4,3 +4,8 @@
 /.bsp/
 /project/
 /target/
+
+*.cache
+project/project/target/config-classes/$2fec9db5655026d56412.cache
+project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs
+.bsp/sbt.json

@@ -1,6 +1,9 @@
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters
 import scala.io.Source
+import scala.language.postfixOps
+
+
 @main
 def main(): Unit = {
 
@@ -13,14 +16,25 @@ def main(): Unit = {
   val Nfile = Source.fromFile("src/unitsN.csv")
   val unitN = ArrayBuffer[String]()
   Nfile.getLines().foreach(line => unitN += line)
-
-  // makes sure the unit file is updated, and removes the "\"
+  //println(unitN.length)
+  //println(unit.length)
+  // makes sure the unit file is updated, and removes the """
   unitN.foreach(x =>
     val u = unitN(unitN.indexOf(x)).replace("\"", "")
     val uPrev = unit(unitN.indexOf(x)).replace("\"", "")
     if (!(u.substring(0,u.indexOf(";")) == uPrev.substring(0,uPrev.indexOf(";")))) unit.insert(unitN.indexOf(x),u);
   )
-
-  for (elem <- unit) {}
-  println(unit(5733))
+  //println(unitN.length)
+  //println(unit.length)
+  unit.foreach(line =>
+    val cur = unit(unit.indexOf(line)).replace("\"", "");
+    println(cur)
+    val sec = cur.indexOf(";",cur.indexOf(";")+1);
+    cur contains match
+      case "_shop;": CharSequence => println("balls");
+      case "_0;" : CharSequence => println("sex");
+      case "_1;" : CharSequence => println("gay");
+      case _ => println("cock");
+  )
+  //(unit(5733))
 }

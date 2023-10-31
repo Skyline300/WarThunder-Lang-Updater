@@ -1,9 +1,6 @@
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters
 import scala.io.Source
-import scala.language.postfixOps
-
-
 @main
 def main(): Unit = {
 
@@ -30,11 +27,11 @@ def main(): Unit = {
     val cur = unit(unit.indexOf(line)).replace("\"", "");
     println(cur)
     val sec = cur.indexOf(";",cur.indexOf(";")+1);
-    cur contains match
+    cur.contains match
       case "_shop;": CharSequence => println("balls");
       case "_0;" : CharSequence => println("sex");
-      case "_1;" : CharSequence => println("gay");
-      case _ => println("cock");
+      case "_1;" : CharSequence => println("gay")
+      case _ => println("cock")
   )
   //(unit(5733))
 }

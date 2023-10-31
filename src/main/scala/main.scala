@@ -13,25 +13,32 @@ def main(): Unit = {
   val Nfile = Source.fromFile("src/unitsN.csv")
   val unitN = ArrayBuffer[String]()
   Nfile.getLines().foreach(line => unitN += line)
-  //println(unitN.length)
-  //println(unit.length)
+
   // makes sure the unit file is updated, and removes the """
   unitN.foreach(x =>
     val u = unitN(unitN.indexOf(x)).replace("\"", "")
     val uPrev = unit(unitN.indexOf(x)).replace("\"", "")
     if (!(u.substring(0,u.indexOf(";")) == uPrev.substring(0,uPrev.indexOf(";")))) unit.insert(unitN.indexOf(x),u);
   )
-  //println(unitN.length)
-  //println(unit.length)
+  var rep = ""
   unit.foreach(line =>
-    val cur = unit(unit.indexOf(line)).replace("\"", "");
-    println(cur)
+    val index = unit.indexOf(line)
+    val cur = unit(index).replace("\"", "");
     val sec = cur.indexOf(";",cur.indexOf(";")+1);
-    cur.contains match
-      case "_shop;": CharSequence => println("balls");
-      case "_0;" : CharSequence => println("sex");
-      case "_1;" : CharSequence => println("gay")
+    val from = cur.indexOf(";") + 1;
+    val to = cur.indexOf(";", cur.indexOf(";") + 1);
+    cur match
+      case x if x.contains("_shop;") => {
+        if (sec != -1) {
+          rep = cur.substring(cur.indexOf(";") + 1, cur.indexOf(";", cur.indexOf(";") + 1));
+          cur = cur.substring(0, cur.indexOf(";", cur.indexOf(";") + 1))
+        }
+        else rep = cur.substring(cur.indexOf(";") + 1)
+        unit.set(i, cur)
+        println("yer mom")
+      }
+      case x if x.contains("_0;") => println("yer dad")
+      case x if x.contains("_1;") || x.contains("_2;") => println("sex")
       case _ => println("cock")
   )
-  //(unit(5733))
 }

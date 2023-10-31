@@ -23,22 +23,25 @@ def main(): Unit = {
   var rep = ""
   unit.foreach(line =>
     val index = unit.indexOf(line)
-    val cur = unit(index).replace("\"", "");
+    var cur = unit(index).replace("\"", "");
     val sec = cur.indexOf(";",cur.indexOf(";")+1);
     val from = cur.indexOf(";") + 1;
     val to = cur.indexOf(";", cur.indexOf(";") + 1);
+    var rep = "";
     cur match
       case x if x.contains("_shop;") => {
         if (sec != -1) {
-          rep = cur.substring(cur.indexOf(";") + 1, cur.indexOf(";", cur.indexOf(";") + 1));
-          cur = cur.substring(0, cur.indexOf(";", cur.indexOf(";") + 1))
+          rep = cur.substring(from, to);
+          cur = cur.substring(0, to)
         }
-        else rep = cur.substring(cur.indexOf(";") + 1)
-        unit.set(i, cur)
-        println("yer mom")
+        else rep = cur.substring(from)
+        unit(index) = cur
       }
-      case x if x.contains("_0;") => println("yer dad")
+      case x if x.contains("_0;") => {
+        println("yer dad")
+      }
       case x if x.contains("_1;") || x.contains("_2;") => println("sex")
-      case _ => println("cock")
+      case _ => println("cock");
   )
+  println(unit(5848))
 }

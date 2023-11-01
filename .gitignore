@@ -11,3 +11,4 @@ project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs
 .bsp/sbt.json
 target/scala-3.0.0/classes/main.class
 *.class
+project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp

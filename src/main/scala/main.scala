@@ -16,24 +16,23 @@ def main(): Unit = {
 
   // makes sure the unit file is updated, and removes the double quotation marks
   unitN.foreach(x =>
-    val u = unitN(unitN.indexOf(x)).replace("\"", "");
-    val uPrev = unit(unitN.indexOf(x)).replace("\"", "");
+    val u = unitN(unitN.indexOf(x)).replace("\"", "")
+    val uPrev = unit(unitN.indexOf(x)).replace("\"", "")
     if (!(u.substring(0,u.indexOf(";")) == uPrev.substring(0,uPrev.indexOf(";")))) unit.insert(unitN.indexOf(x),u);
   )
-  var rep = "";
-  //println(unit.length)
-
+  var rep = ""
+  println(unit(5842))
   // removes unnecessary languages from the file
   unit.foreach(line =>
-    val index = unit.indexOf(line);
-    var cur = unit(index).replace("\"", "");
-    val start = cur.indexOf(";") + 1;
+    val index = unit.indexOf(line)
+    var cur = unit(index).replace("\"", "")
+    val start = cur.indexOf(";") + 1
     val sec = cur.indexOf(";",start);
 
     cur match
       case x if x.contains("_shop;") => {
         if sec != -1 then
-          rep = cur.substring(start, sec);
+          rep = cur.substring(start, sec)
           cur = cur.substring(0, sec);
         else
           rep = cur.substring(start);
@@ -49,13 +48,13 @@ def main(): Unit = {
       }
       case x if x.contains("_1;") => {
         cur = cur.substring(0, cur.indexOf(";") + 1) + rep
-        if (cur.contains("_2;")) rep = "";
-        unit(index) = cur;
+        if (cur.contains("_2;")) rep = ""
+        unit(index) = cur
       }
       case _ => {
-        println("I hate kids")
+        //println("I hate kids")
       };
-      println(unit(index))
-  )
 
+  )
+  println(unit(5842))
 }

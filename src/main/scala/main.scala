@@ -32,10 +32,10 @@ def main(): Unit = {
     cur match
       case x if x.contains("_shop;") => {
         if sec != -1 then
-          rep = cur.substring(start, sec)
-          cur = cur.substring(0, sec);
+          rep = cur.substring(cur.indexOf(";") + 1, cur.indexOf(";", cur.indexOf(";") + 1));
+          cur = cur.substring(0, cur.indexOf(";", cur.indexOf(";") + 1));
         else
-          rep = cur.substring(start);
+          rep = cur.substring(cur.indexOf(";") + 1);
         unit(index) = cur
       }
       case x if x.contains("_0;") => {
@@ -47,7 +47,7 @@ def main(): Unit = {
         unit(index) = cur
       }
       case x if x.contains("_1;") || x.contains("_2;") => {
-        cur = cur.substring(0, sec) // + rep
+        cur = cur.substring(0, sec) + rep
         if (cur.contains("_2;")) rep = ""
         unit(index) = cur
       }

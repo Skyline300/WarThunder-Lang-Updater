@@ -21,13 +21,13 @@ def main(): Unit = {
     if (!(u.substring(0,u.indexOf(";")) == uPrev.substring(0,uPrev.indexOf(";")))) unit.insert(unitN.indexOf(x),u);
   )
   var rep = ""
+  //println(unit.length)
   unit.foreach(line =>
     val index = unit.indexOf(line)
     var cur = unit(index).replace("\"", "");
     val sec = cur.indexOf(";",cur.indexOf(";")+1);
     val from = cur.indexOf(";") + 1;
     val to = cur.indexOf(";", cur.indexOf(";") + 1);
-    var rep = "";
     cur match
       case x if x.contains("_shop;") => {
         if (sec != -1) {
@@ -38,10 +38,10 @@ def main(): Unit = {
         unit(index) = cur
       }
       case x if x.contains("_0;") => {
-        println("yer dad")
+       // println("yer dad")
       }
-      case x if x.contains("_1;") || x.contains("_2;") => println("sex")
-      case _ => println("cock");
+      case x if x.contains("_1;") || x.contains("_2;") => //println("sex")
+      case _ => //println("cock");
   )
   println(unit(5848))
 }

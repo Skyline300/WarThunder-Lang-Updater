@@ -29,7 +29,6 @@ def main(): Unit = {
     var cur = unit(index).replace("\"", "");
     val start = cur.indexOf(";") + 1;
     val sec = cur.indexOf(";",start);
-    //val to = cur.indexOf(";", start);
 
     cur match
       case x if x.contains("_shop;") => {
@@ -45,19 +44,17 @@ def main(): Unit = {
           rep = cur.substring(start,sec)
         else
           rep = cur.substring(start)
-       // println("yer dad")
         if sec != -1 then cur = cur.substring(0,sec)
         unit(index) = cur
       }
-      case x if x.contains("_1;") || x.contains("_2;") => {
-        cur = cur.substring(0,start) + rep;
-        if cur.contains("_2;") then rep = "";
+      case x if x.contains("_1;") => {
+        cur = cur.substring(0, cur.indexOf(";") + 1) + rep
+        if (cur.contains("_2;")) rep = "";
         unit(index) = cur;
       }
       case _ => {
         println("I hate kids")
-      }
-
+      };
       println(unit(index))
   )
 

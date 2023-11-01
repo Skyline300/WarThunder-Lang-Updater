@@ -21,7 +21,7 @@ def main(): Unit = {
     if (!(u.substring(0,u.indexOf(";")) == uPrev.substring(0,uPrev.indexOf(";")))) unit.insert(unitN.indexOf(x),u);
   )
   var rep = ""
-  println(unit(5842))
+  println(unit(5682))
   // removes unnecessary languages from the file
   unit.foreach(line =>
     val index = unit.indexOf(line)
@@ -46,8 +46,8 @@ def main(): Unit = {
         if sec != -1 then cur = cur.substring(0,sec)
         unit(index) = cur
       }
-      case x if x.contains("_1;") => {
-        cur = cur.substring(0, cur.indexOf(";") + 1) + rep
+      case x if x.contains("_1;") || x.contains("_2;") => {
+        cur = cur.substring(0, sec) // + rep
         if (cur.contains("_2;")) rep = ""
         unit(index) = cur
       }
@@ -56,5 +56,5 @@ def main(): Unit = {
       };
 
   )
-  println(unit(5842))
+  println(unit(5682))
 }

@@ -1,3 +1,4 @@
+import java.io.FileWriter
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters
 import scala.io.Source
@@ -33,9 +34,9 @@ def main(): Unit = {
       case x if x.contains("_shop;") => {
         if sec != -1 then
           rep = cur.substring(cur.indexOf(";") + 1, cur.indexOf(";", cur.indexOf(";") + 1));
-          cur = cur.substring(0, cur.indexOf(";", cur.indexOf(";") + 1));
+          cur = cur.substring(0, sec);
         else
-          rep = cur.substring(cur.indexOf(";") + 1);
+          rep = cur.substring(start);
         unit(index) = cur
       }
       case x if x.contains("_0;") => {
@@ -47,14 +48,22 @@ def main(): Unit = {
         unit(index) = cur
       }
       case x if x.contains("_1;") || x.contains("_2;") => {
-        cur = cur.substring(0, sec) + rep
-        if (cur.contains("_2;")) rep = ""
+//        cur = cur.substring(0,start) + rep
+//        if (cur.contains("_2;")) rep = ""
+//        unit(index) = cur
+        if sec != -1 then cur = cur.substring(0, sec);
         unit(index) = cur
       }
       case _ => {
-        //println("I hate kids")
+        if (sec != -1) cur = cur.substring(0,sec)
+        unit(index) = cur
       };
 
   )
-  println(unit(5682))
+  val w = new FileWriter("src/unitsMod.csv")
+  for (i <- unit.indices) {
+    w.write(unit(i) + "\n")
+  }
+  w.close()
+
 }

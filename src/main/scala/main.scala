@@ -1,6 +1,5 @@
 import java.io.FileWriter
 import scala.collection.mutable.ArrayBuffer
-import scala.jdk.CollectionConverters
 import scala.io.Source
 @main
 def main(): Unit = {

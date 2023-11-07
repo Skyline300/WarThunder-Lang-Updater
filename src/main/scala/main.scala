@@ -21,8 +21,6 @@ def main(): Unit = {
     val uPrev = unit(unitN.indexOf(x)).replace("\"", "")
     if (!(u.substring(0,u.indexOf(";")) == uPrev.substring(0,uPrev.indexOf(";")))) unit.insert(unitN.indexOf(x),u);
   )
-  var rep = ""
-  println(unit(5682))
   // removes unnecessary languages from the file
   unit.foreach(line =>
     val index = unit.indexOf(line)
@@ -33,24 +31,14 @@ def main(): Unit = {
     cur match
       case x if x.contains("_shop;") => {
         if sec != -1 then
-          rep = cur.substring(cur.indexOf(";") + 1, cur.indexOf(";", cur.indexOf(";") + 1));
           cur = cur.substring(0, sec);
-        else
-          rep = cur.substring(start);
         unit(index) = cur
       }
       case x if x.contains("_0;") => {
-        if rep == "" && sec != -1 then
-          rep = cur.substring(start,sec)
-        else
-          rep = cur.substring(start)
         if sec != -1 then cur = cur.substring(0,sec)
         unit(index) = cur
       }
       case x if x.contains("_1;") || x.contains("_2;") => {
-//        cur = cur.substring(0,start) + rep
-//        if (cur.contains("_2;")) rep = ""
-//        unit(index) = cur
         if sec != -1 then cur = cur.substring(0, sec);
         unit(index) = cur
       }

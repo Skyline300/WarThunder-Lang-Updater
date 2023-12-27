@@ -2,19 +2,19 @@ import java.io.FileWriter
 import scala.collection.mutable.ArrayBuffer
 import scala.io.{BufferedSource, Source}
 @main
-def main(args: Array[String]): Unit = {
+def main(): Unit = {
 
-  if(args.length < 2)
-    System.exit(1) // No input file
+//  if(args.length < 2)
+//    System.exit(1) // No input file
 
 
   // adds the file data to the "myLangFileBuffer" array
-  val myLangFile: BufferedSource = Source.fromFile(args[0])
+  val myLangFile: BufferedSource = Source.fromFile("src/units.csv")
   val myLangFileBuffer = myLangFile.getLines().toArray.toBuffer
   myLangFile.close()
 
   // adds the new file data into the "updatedLangFileBuffer" array
-  val updatedLangFile: BufferedSource = Source.fromFile(args[1])
+  val updatedLangFile: BufferedSource = Source.fromFile("src/unitsN.csv")
   val updatedLangFileBuffer = updatedLangFile.getLines().toArray.toBuffer
   updatedLangFile.close()
 
@@ -22,9 +22,9 @@ def main(args: Array[String]): Unit = {
   updatedLangFileBuffer.zipWithIndex.foreach { case (line, index) =>
     val unescapedNewLine = line.replace("\"", "")
     val unescapedOldLine = myLangFileBuffer(index).replace("\"", "")
-    val firstColumnInUnitN = unescapedNewLine.split(";")[0]
-    val firstColumnInUnit = unescapedOldLine.split(";")[0]
-    if (!firstColumnInUnitN == firstColumnInUnit) myLangFileBuffer.insert(index, unescapedNewLine);
+    val firstColumnInUnitN = unescapedNewLine.split(";")(0)
+    val firstColumnInUnit = unescapedOldLine.split(";")(0)
+    if (firstColumnInUnitN != firstColumnInUnit) myLangFileBuffer.insert(index, unescapedNewLine);
   }
 
   var i = 0

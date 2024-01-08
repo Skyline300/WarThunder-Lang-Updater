@@ -1,4 +1,4 @@
-package com.skyline.warlangmod
+package com.skyline.wtlangmod
 
 import scala.collection.mutable.ArrayBuffer
 import scala.io.BufferedSource
@@ -15,6 +15,7 @@ case class Translations(languages: ArrayBuffer[Language]) {
 }
 
 object Language {
+  // sanitises the file and whatnot, making sure there's no empty lines
   def parse(languageFile: BufferedSource, modded: Boolean): Translations = {
     val iter = languageFile.getLines()
     val languages = iter.flatMap { str =>
@@ -25,6 +26,7 @@ object Language {
         if(objName.isEmpty) {
           throw new RuntimeException("This is gay")
         }
+        // gets the all the translations for the languages and whatnot, we'll filter the eng only at a later part
         val (_, translations) = splitString.splitAt(1)
         Language(objName, translations.toList, modded)
       }.toOption

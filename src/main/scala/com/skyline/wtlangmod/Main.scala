@@ -25,7 +25,7 @@ object Main {
     parsedUpdateLangFile.languages.zipWithIndex.foreach { case (language, index) =>
       val moddedTranslationAtIndex = parsedModdedLangFile.languages(index)
       if (language.objName != moddedTranslationAtIndex.objName && moddedTranslationAtIndex.modded) {
-        // headOption because USA USA
+        // headOption one more time just in case
         val fuckOtherLanguagesUSAUSA = Language(language.objName, language.translations.headOption.toList, false)
         parsedModdedLangFile.languages.insert(index, fuckOtherLanguagesUSAUSA)
       }
@@ -33,7 +33,6 @@ object Main {
 
     // Remove stupid duplicates
     val output = Translations(parsedModdedLangFile.languages.distinctBy(_.objName))
-
     // Writes all of the updates
     val w = new FileWriter("src/unitsMod.csv")
     w.write(output.toString)

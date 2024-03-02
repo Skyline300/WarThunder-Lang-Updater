@@ -26,9 +26,9 @@ object Language {
         if(objName.isEmpty) {
           throw new RuntimeException("This is gay")
         }
-        // gets the all the translations for the languages and whatnot, we'll filter the eng only at a later part
+        // gets the all the translations for the languages and whatnot,and then we filter it to Eng only
         val (_, translations) = splitString.splitAt(1)
-        Language(objName, translations.toList, modded)
+        Language(objName, translations.headOption.toList, modded)
       }.toOption
     }
     Translations(ArrayBuffer.from(languages).distinctBy(_.objName))

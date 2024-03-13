@@ -6,5 +6,6 @@ ThisBuild / organization := "com.skyline.warlangmod"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "WarThunder"
+    name := "WarThunder Language Updater",
+    assembly / mainClass := Some("com.skyline.warlangmod.Main"),
   )

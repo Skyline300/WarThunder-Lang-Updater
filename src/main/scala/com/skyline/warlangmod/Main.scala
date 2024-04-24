@@ -10,16 +10,21 @@ object Main {
 
     val parsingService                = ParsingService()
     val translationOverwriter         = TranslationOverwriteService()
+    val outputService                 = Output()
 
     val moddedTranslations            = parsingService.translations(args(0))
     val originalUpdatedTranslations   = parsingService.translations(args(1))
 
     val uptodateModdedTranslationFile = translationOverwriter.overwrite(originalUpdatedTranslations, moddedTranslations)
 
+
+
+
+    outputService.write(uptodateModdedTranslationFile)
     // TODO Move it out of here to its own service
     // Writes all of the updates
-    val updatedFile = new FileWriter("unitsMod.csv")
-    updatedFile.write(uptodateModdedTranslationFile.render())
-    updatedFile.close()
+//    val updatedFile = new FileWriter("unitsMod.csv")
+//    updatedFile.write(uptodateModdedTranslationFile.render())
+//    updatedFile.close()
   }
 }

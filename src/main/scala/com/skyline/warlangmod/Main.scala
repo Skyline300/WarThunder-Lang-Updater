@@ -17,14 +17,6 @@ object Main {
 
     val uptodateModdedTranslationFile = translationOverwriter.overwrite(originalUpdatedTranslations, moddedTranslations)
 
-
-
-
     outputService.write(uptodateModdedTranslationFile)
-    // TODO Move it out of here to its own service
-    // Writes all of the updates
-//    val updatedFile = new FileWriter("unitsMod.csv")
-//    updatedFile.write(uptodateModdedTranslationFile.render())
-//    updatedFile.close()
   }
 }

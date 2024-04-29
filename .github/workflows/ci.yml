@@ -13,5 +13,7 @@ jobs:
       with:
         distribution: temurin
         java-version: 17
+    - name: Test Build
+      run: sbt test
     - name: Build JAR
       run: sbt assembly

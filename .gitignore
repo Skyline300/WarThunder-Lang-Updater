@@ -7,4 +7,4 @@ target/
 */target
 **/target
 .bsp/*
-.bst/**/*
+.bsp/**/*

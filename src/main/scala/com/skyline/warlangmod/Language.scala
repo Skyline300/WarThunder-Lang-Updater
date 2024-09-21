@@ -6,7 +6,7 @@ import scala.util.Try
 // the base case class that stores the data
 case class Language(objName: String, translation: String) extends Renderable {
   override def render(): String = {
-    // combines both back together in a single line
+    // combines both back together in a single line to string
     s"$objName;$translation"
   }
 

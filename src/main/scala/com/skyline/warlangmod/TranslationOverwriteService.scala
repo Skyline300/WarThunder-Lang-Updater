@@ -12,8 +12,10 @@ object TranslationOverwriteService {
     override def overwrite(original: Translations, modded: Translations): Translations = {
       val moddedMap  = toMap(modded)
       val updated = original.languages.map { language =>
-        // what the fuck does this do again
+        // returns the value associated to the key (objName)
+        // if there is no key that matches in the moddedMap, return original translation name
         val overwrittenLanguageTranslation = moddedMap.getOrElse(language.objName, language.translation)
+        // updates the original with the modded translations for each name
         language.copy(translation = overwrittenLanguageTranslation)
       }
       

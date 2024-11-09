@@ -1,7 +1,5 @@
 package com.skyline.warlangmod
 
-import java.io.FileWriter
-
 object App {
   def run(inputFileName: String, originalFile: String, outputFileName: String): Unit = {
 

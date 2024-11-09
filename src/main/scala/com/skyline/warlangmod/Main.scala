@@ -8,9 +8,11 @@ object Main extends CommandApp(
   name = "WarThunder Translation Updater",
   header = "A tool to update the translation files for WarThunder ",
   main = {
-    val defaultInFile = "units.csv"
-    val defaultOriginalFile = "unitsN.csv"
-    val defaultOutFile = "unitsMod.csv"
+    val defaultUnitsLink = "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/1bc153b0d22ac06719f6ce1ba2c25b567285cc99/lang.vromfs.bin_u/lang/units.csv"
+    val defaultWeaponryLink = "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/1bc153b0d22ac06719f6ce1ba2c25b567285cc99/lang.vromfs.bin_u/lang/units_weaponry.csv"
+    val defaultInFile = "src/units.csv"
+    val defaultOriginalFile = "src/unitsN.csv"
+    val defaultOutFile = "src/output.csv"
     val originalFile = Opts.option[String](
       long = "original",
       short = "r",

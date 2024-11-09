@@ -27,7 +27,7 @@ object Main extends CommandApp(
       help = s"The output file to be written to, defaults $defaultOutFile when not provided").withDefault(defaultOutFile)
 
     (inFile, originalFile, outFile).mapN {
-      (inputFileName, originalFileName, outputFileName) => App.run(inputFileName, originalFileName, outputFileName)
+      (inputFileName, originalFileName, outputFileName) => App.runOffline(inputFileName, originalFileName, outputFileName)
     }
   }
 )

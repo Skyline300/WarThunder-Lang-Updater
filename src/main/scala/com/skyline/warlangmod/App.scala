@@ -1,7 +1,7 @@
 package com.skyline.warlangmod
 
 object App {
-  def run(inputFileName: String, originalFile: String, outputFileName: String): Unit = {
+  def runOffline(inputFileName: String, originalFile: String, outputFileName: String): Unit = {
 
     val parsingService = ParsingService.instance
     val translationOverwrite = TranslationOverwriteService.instance

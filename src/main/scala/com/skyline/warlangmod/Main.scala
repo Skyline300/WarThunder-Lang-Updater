@@ -13,6 +13,10 @@ object Main extends CommandApp(
     val defaultInFile = "src/units.csv"
     val defaultOriginalFile = "src/unitsN.csv"
     val defaultOutFile = "src/output.csv"
+
+    val localOperation = Opts.flag("Local",
+      help = "Use a local instance of your files"
+    ).orFalse
     val originalFile = Opts.option[String](
       long = "original",
       short = "r",
@@ -26,8 +30,14 @@ object Main extends CommandApp(
       short = "o",
       help = s"The output file to be written to, defaults $defaultOutFile when not provided").withDefault(defaultOutFile)
 
-    (inFile, originalFile, outFile).mapN {
-      (inputFileName, originalFileName, outputFileName) => App.runOffline(inputFileName, originalFileName, outputFileName)
+    (localOperation, inFile, originalFile, outFile).mapN {
+      (localOps, inputFileName, originalFileName, outputFileName) =>
+        if (localOps) {
+          println("-----Running Locally----")
+          App.runOffline(inputFileName, originalFileName, outputFileName)
+        } else println("running online")
     }
+
+
   }
 )

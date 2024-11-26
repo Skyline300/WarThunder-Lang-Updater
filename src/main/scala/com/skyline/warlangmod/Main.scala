@@ -14,7 +14,7 @@ object Main extends CommandApp(
     val defaultOriginalFile = "src/unitsN.csv"
     val defaultOutFile = "src/output.csv"
 
-    val localOperation = Opts.flag("Local",
+    val localOperation = Opts.flag("local",
       help = "Use a local instance of your files"
     ).orFalse
     val originalFile = Opts.option[String](

@@ -33,11 +33,14 @@ object Main extends CommandApp(
     (localOperation, inFile, originalFile, outFile).mapN {
       (localOps, inputFileName, originalFileName, outputFileName) =>
         if (localOps) {
+          // run a local instance of the program
           println("-----Running Locally----")
           App.runOffline(inputFileName, originalFileName, outputFileName)
-        } else println("running online")
+        } else {
+          // program will fetch a file from the github repository
+          println("------Running Online------")
+          App.runOnline(inputFileName)
+        }
     }
-
-
   }
 )

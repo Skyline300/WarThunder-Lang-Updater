@@ -39,7 +39,7 @@ object Main extends CommandApp(
         } else {
           // program will fetch a file from the github repository
           println("------Running Online------")
-          App.runOnline(inputFileName)
+          App.runOnline(inputFileName,"some gay shit")
         }
     }
   }

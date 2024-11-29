@@ -16,7 +16,7 @@ object App {
     outputService.write(updatedModdedFile, outputFileName)
   }
 
-  def runOnline(inputFileName: String):Unit = {
+  def runOnline(inputFileName: String, filePath: String):Unit = {
     val parsingService = ParsingService.instance
     val translationOverwrite = TranslationOverwriteService.instance
     val outputService = Output.instance

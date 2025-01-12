@@ -1,5 +1,7 @@
 package com.skyline.warlangmod
 
+import scala.util.Try
+
 object App {
   def runOffline(inputFileName: String, originalFile: String, outputFileName: String): Unit = {
 
@@ -20,8 +22,9 @@ object App {
     val parsingService = ParsingService.instance
     val translationOverwrite = TranslationOverwriteService.instance
     val outputService = Output.instance
-
-
+    Try {
+      FetchService.fetchFile(filePath)
+    }
 
   }
 }

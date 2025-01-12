@@ -9,20 +9,22 @@ import java.io.FileWriter
 
 
 object FetchService {
-      def fetchFile(): Unit = {
+      def fetchFile(url: String): Unit = {
         val client = HttpClient
           .newBuilder()
           .proxy(ProxySelector.getDefault)
           .build()
+
         val httpReq = HttpRequest.newBuilder()
-          .uri(new URI("https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/1bc153b0d22ac06719f6ce1ba2c25b567285cc99/lang.vromfs.bin_u/lang/units.csv"))
+          .uri(new URI(url))
           .timeout(Duration.ofSeconds(20))
           .GET()
           .build()
+
         val response = client.send(httpReq,BodyHandlers.ofString())
         val body = response.body()
 
-        val fileWriter = new FileWriter("src/output.csv")
+        val fileWriter = new FileWriter("src/test.csv")
         fileWriter.write(body)
         fileWriter.close()
       }

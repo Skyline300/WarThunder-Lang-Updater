@@ -13,6 +13,8 @@ jobs:
       with:
         distribution: temurin
         java-version: 21
+    - name: Setup sbt launcher
+      uses: sbt/setup-sbt@v1
     - name: Test Build
       run: sbt test
     - name: Build JAR

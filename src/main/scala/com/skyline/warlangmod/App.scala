@@ -1,5 +1,7 @@
 package com.skyline.warlangmod
 
+import com.skyline.warlangmod.cli.Params.TranslationFileType
+
 import scala.util.Try
 
 object App {
@@ -18,7 +20,7 @@ object App {
     outputService.write(updatedModdedFile, outputFileName)
   }
 
-  def runOnline(inputFileName: String, filePath: String, fileType:String):Unit = {
+  def runOnline(inputFileName: String, filePath: String, fileType:TranslationFileType):Unit = {
     val parsingService = ParsingService.instance
     val translationOverwrite = TranslationOverwriteService.instance
     val outputService = Output.instance

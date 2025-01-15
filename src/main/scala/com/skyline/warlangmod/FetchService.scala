@@ -28,6 +28,4 @@ object FetchService {
         fileWriter.write(body)
         fileWriter.close()
       }
-
-
 }

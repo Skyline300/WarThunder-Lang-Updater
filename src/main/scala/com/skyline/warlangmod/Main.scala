@@ -1,6 +1,7 @@
 package com.skyline.warlangmod
 
 import com.monovore.decline._
+import com.skyline.warlangmod.cli.Params.TranslationFileType
 //import cats.data.Validated
 import cats.implicits._
 
@@ -17,7 +18,7 @@ object Main extends CommandApp(
     val localOperation = Opts.flag("local",
       help = "Use a local instance of your files"
     ).orFalse
-    val fileType = Opts.option[String](
+    val fileType = Opts.flagOption[TranslationFileType](
       long = "type",
       short = "t",
       help = "The file in which you want to update, where the two commands are 'units' and 'weaponry'"
@@ -38,10 +39,8 @@ object Main extends CommandApp(
       help = s"The output file to be written to, defaults $defaultOutFile when not provided"
     ).withDefault(defaultOutFile)
 
-    fileType.validate("Parameter must either be units or weaponry!") { x => x == "units" || x == "weaponry" }
-
     (localOperation,fileType, inFile, originalFile, outFile).mapN {
-      (localOps, fileType, inputFileName, originalFileName, outputFileName) =>
+      (localOps, fileTypeOp, inputFileName, originalFileName, outputFileName) =>
         if (localOps) {
           // run a local instance of the program
           println("-----Running Locally----")
@@ -49,8 +48,11 @@ object Main extends CommandApp(
         } else {
           // program will fetch a file from the github repository
           println("------Running Online------")
-          println(fileType)
-          App.runOnline(inputFileName,defaultUnitsLink,fileType)
+          fileTypeOp match {
+            case Some(fileType) =>  App.runOnline(inputFileName,defaultUnitsLink,fileType)
+            case None => sys.error("fileType is required when running online")
+          }
+
         }
     }//.validate("Parameter must either be units or weaponry!")(c => c)
   }

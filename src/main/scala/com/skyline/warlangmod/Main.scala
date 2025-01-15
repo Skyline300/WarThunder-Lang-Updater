@@ -1,7 +1,7 @@
 package com.skyline.warlangmod
 
 import com.monovore.decline._
-
+//import cats.data.Validated
 import cats.implicits._
 
 object Main extends CommandApp(
@@ -17,21 +17,31 @@ object Main extends CommandApp(
     val localOperation = Opts.flag("local",
       help = "Use a local instance of your files"
     ).orFalse
+    val fileType = Opts.option[String](
+      long = "type",
+      short = "t",
+      help = "The file in which you want to update, where the two commands are 'units' and 'weaponry'"
+    )
     val originalFile = Opts.option[String](
       long = "original",
       short = "r",
-      help = s"The original file to be updated, defaults to $defaultOriginalFile when not provided").withDefault(defaultOriginalFile)
+      help = s"The original file to be updated, defaults to $defaultOriginalFile when not provided"
+    ).withDefault(defaultOriginalFile)
     val inFile = Opts.option[String](
       long = "input",
       short = "i",
-      help = s"The input file to be updated, defaults to $defaultInFile when not provided").withDefault(defaultInFile)
+      help = s"The input file to be updated, defaults to $defaultInFile when not provided"
+    ).withDefault(defaultInFile)
     val outFile = Opts.option[String](
       long = "output",
       short = "o",
-      help = s"The output file to be written to, defaults $defaultOutFile when not provided").withDefault(defaultOutFile)
+      help = s"The output file to be written to, defaults $defaultOutFile when not provided"
+    ).withDefault(defaultOutFile)
 
-    (localOperation, inFile, originalFile, outFile).mapN {
-      (localOps, inputFileName, originalFileName, outputFileName) =>
+    fileType.validate("Parameter must either be units or weaponry!") { x => x == "units" || x == "weaponry" }
+
+    (localOperation,fileType, inFile, originalFile, outFile).mapN {
+      (localOps, fileType, inputFileName, originalFileName, outputFileName) =>
         if (localOps) {
           // run a local instance of the program
           println("-----Running Locally----")
@@ -39,8 +49,9 @@ object Main extends CommandApp(
         } else {
           // program will fetch a file from the github repository
           println("------Running Online------")
-          App.runOnline(inputFileName,defaultUnitsLink)
+          println(fileType)
+          App.runOnline(inputFileName,defaultUnitsLink,fileType)
         }
-    }
+    }//.validate("Parameter must either be units or weaponry!")(c => c)
   }
 )

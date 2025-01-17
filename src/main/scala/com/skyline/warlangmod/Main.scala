@@ -40,7 +40,7 @@ object Main extends CommandApp(
     ).withDefault(defaultOutFile)
 
     (localOperation,fileType, inFile, originalFile, outFile).mapN {
-      (localOps, fileTypeOp, inputFileName, originalFileName, outputFileName) =>
+      (localOps, fileType, inputFileName, originalFileName, outputFileName) =>
         if (localOps) {
           // run a local instance of the program
           println("-----Running Locally----")
@@ -48,9 +48,9 @@ object Main extends CommandApp(
         } else {
           // program will fetch a file from the github repository
           println("------Running Online------")
-          fileTypeOp match {
-            case Some(fileType) =>  App.runOnline(inputFileName,defaultUnitsLink,fileType)
+          fileType match {
             case None => sys.error("fileType is required when running online")
+            case Some(fileType) =>  App.runOnline(inputFileName,defaultUnitsLink,fileType)
           }
 
         }

@@ -22,7 +22,7 @@ object Main extends CommandApp(
       long = "type",
       short = "t",
       help = "The file in which you want to update, where the two commands are 'units' and 'weaponry'"
-    )
+    ).orNone
     val originalFile = Opts.option[String](
       long = "original",
       short = "r",

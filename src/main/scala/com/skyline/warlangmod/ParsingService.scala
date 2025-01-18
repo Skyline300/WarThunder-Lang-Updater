@@ -14,7 +14,6 @@ object ParsingService {
 
   lazy val instance: ParsingService = (filename: String) => {
     val langFile = Source.fromFile(filename)
-    println(langFile.getLines())
     val translations = Language.parse(langFile)
     langFile.close()
     translations

@@ -20,7 +20,8 @@ object App {
     outputService.write(updatedModdedFile, outputFileName)
   }
 
-  def runOnline(inputFileName: String, filePath: String, fileType:TranslationFileType):Unit = {
+  def runOnline(inputFileName: String, filePath: String, fileType:Option[TranslationFileType]):Unit = {
+    val file = fileType.get
     val parsingService = ParsingService.instance
     val translationOverwrite = TranslationOverwriteService.instance
     val outputService = Output.instance

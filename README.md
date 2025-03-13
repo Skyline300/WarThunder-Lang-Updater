@@ -1,4 +1,5 @@
-# WarThunder-Lang-Updater
+# War Thunder Language Updater [![Continuous Integration](https://github.com/Skyline300/WarThunder-Lang-Updater/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Skyline300/WarThunder-Lang-Updater/actions/workflows/ci.yml)
+
 An updater for lang files for War Thunder, written in Scala
 
 ## Usage
@@ -36,3 +37,13 @@ The `output` file is the file that will be written to, it can be absolute or rel
 
 ## Can you use this for any other file other than Units.csv?
 Some of the localization files currently do not work with this program. So far I've confirmed it to work with units and units_weaponry.
+
+
+**COPYRIGHT DISCLAIMER**  
+*This repository and its contents are not affiliated with, endorsed, sponsored, or specifically approved by Gaijin Entertainment or War Thunder developers. War Thunder and all related trademarks, logos, and intellectual property are the exclusive property of Gaijin Entertainment.*  
+
+*This project is created for educational/personal purposes only. No copyright infringement is intended. Any game-related assets, terminology, or references mentioned are owned by their respective copyright holders.*  
+
+*Gaijin Entertainment's official website can be found at [https://warthunder.com](https://warthunder.com).*  
+
+*If you are a representative of Gaijin Entertainment and believe this project infringes on your intellectual property rights, please contact me to address your concerns.*

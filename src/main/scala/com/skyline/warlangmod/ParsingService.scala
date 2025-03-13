@@ -2,21 +2,16 @@ package com.skyline.warlangmod
 
 import scala.io.Source
 
-/**
- * For parsing language/translation files of WarThunder
- */
+/** For parsing language/translation files of WarThunder
+  */
 
-trait ParsingService {
+trait ParsingService:
   def translations(filename: String): Translations
-}
 
-object ParsingService {
+object ParsingService:
 
-  lazy val instance: ParsingService = (filename: String) => {
+  lazy val instance: ParsingService = filename =>
     val langFile = Source.fromFile(filename)
-    val translations = Language.parse(langFile)
+    val translations = TranslationMapping.parse(langFile)
     langFile.close()
     translations
-  }
-
-}

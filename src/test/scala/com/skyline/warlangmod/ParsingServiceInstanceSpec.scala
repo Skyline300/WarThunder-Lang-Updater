@@ -7,7 +7,7 @@ class ParsingServiceInstanceSpec extends munit.FunSuite {
   test("ParsingServiceInstance should parse a WarThunder Translation file format") {
     val translations = Translations(
       languages = Vector(
-        Language("something", "good")
+        TranslationMapping("something", "good")
       )
     )
     val tmpFile = Files.createTempFile("ParsingServiceInstanceTestFile", null)

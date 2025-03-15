@@ -2,9 +2,13 @@ src/units.csv
 .idea/
 src/unitsN.csv
 .bsp/
-project/
+project/**/*
 target/
 */target
 **/target
 .bsp/*
 .bsp/**/*
+*.csv
+.bloop/
+.metals/
+*.jar

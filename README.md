@@ -1,4 +1,4 @@
-# War Thunder Language Updater [![Continuous Integration](https://github.com/Skyline300/WarThunder-Lang-Updater/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Skyline300/WarThunder-Lang-Updater/actions/workflows/ci.yml)
+# War Thunder Language Updater [![Continuous Integration](https://github.com/Skyline300/WarThunder-Lang-Updater/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Skyline300/WarThunder-Lang-Updater/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/Skyline300/WarThunder-Lang-Updater/graph/badge.svg?token=V0ACPXPUSR)](https://codecov.io/gh/Skyline300/WarThunder-Lang-Updater)
 
 An updater for lang files for War Thunder, written in Scala
 

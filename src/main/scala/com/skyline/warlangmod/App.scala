@@ -20,11 +20,14 @@ object App {
     outputService.write(updatedModdedFile, outputFileName)
   }
 
-  def runOnline(inputFileName: String, filePath: String, fileType:Option[TranslationFileType]):Unit = {
-    val file = fileType.get
+  def runOnline(inputFileName: String, filePath: String, fileType:TranslationFileType):Unit = {
     val parsingService = ParsingService.instance
     val translationOverwrite = TranslationOverwriteService.instance
     val outputService = Output.instance
+    fileType match {
+      case TranslationFileType.Units => ???
+      case TranslationFileType.Weaponry => ??? //What the fuck am i doing
+    }
     Try {
       FetchService.fetchFile(filePath)
     }

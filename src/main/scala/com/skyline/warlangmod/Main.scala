@@ -48,7 +48,7 @@ object Main extends CommandApp(
         } else {
           // program will fetch a file from the github repository
           println("------Running Online------")
-          fileType match {
+          fileType.flatten match {
             case None => sys.error("fileType is required when running online")
             case Some(fileType) =>  App.runOnline(inputFileName,defaultUnitsLink,fileType)
           }

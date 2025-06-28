@@ -117,4 +117,4 @@ jobs:
       - name: Release step for generated jar
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create --verify-tag --generate-notes v0.0.0 WarThunderLanguageModifier.jar
+        run: gh release create --verify-tag --generate-notes v0.0.1 WarThunderLanguageModifier.jar

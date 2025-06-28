@@ -13,9 +13,6 @@ object App:
 
     val moddedTranslations = parsingService.translations(inputFileName)
     val originalUpdatedTranslations = parsingService.translations(originalFile)
-    val updatedModdedFile = translationOverwrite.overwrite(
-      originalUpdatedTranslations,
-      moddedTranslations
-    )
+    val updatedModdedFile = translationOverwrite.overwrite(originalUpdatedTranslations,moddedTranslations)
 
     outputService.write(updatedModdedFile, outputFileName)

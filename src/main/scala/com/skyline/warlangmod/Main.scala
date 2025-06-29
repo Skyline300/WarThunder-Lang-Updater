@@ -1,14 +1,19 @@
 package com.skyline.warlangmod
 
 import com.monovore.decline.*
-
+import scala.annotation.nowarn
 import cats.implicits.*
+
+@nowarn
+
 
 object Main
     extends CommandApp(
       name = "WarThunder Translation Updater",
       header = "A tool to update the translation files for WarThunder ",
       main =
+        val unitsLink = "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/master/lang.vromfs.bin_u/lang/units.csv"
+        val weaponryLink = "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/master/lang.vromfs.bin_u/lang/units_weaponry.csv"
         val defaultInFile = "units.csv"
         val defaultOriginalFile = "unitsN.csv"
         val defaultOutFile = "unitsMod.csv"

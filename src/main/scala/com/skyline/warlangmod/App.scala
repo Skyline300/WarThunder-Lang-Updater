@@ -1,8 +1,10 @@
 package com.skyline.warlangmod
 
 import com.skyline.warlangmod.cli.Params.TranslationFileType
-import scala.util.Try
 
+import scala.annotation.nowarn
+
+@nowarn
 object App:
   def run(
       inputFileName: String,

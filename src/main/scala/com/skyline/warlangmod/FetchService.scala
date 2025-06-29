@@ -1,8 +1,7 @@
 package com.skyline.warlangmod
 
-import scala.sys.process._
 import java.net.http._
-import java.net.http.HttpResponse.{BodyHandler, BodyHandlers}
+import java.net.http.HttpResponse.BodyHandlers
 import java.time.Duration
 import java.net.{ProxySelector, URI}
 import java.io.FileWriter
